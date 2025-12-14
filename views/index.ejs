@@ -1,0 +1,17 @@
+<%- include("layout", { body: `
+<h2>Saved Recipes</h2>
+
+${recipes.length === 0 ? "<p>No saved recipes.</p>" : ""}
+<ul>
+  ${recipes.map(r => `
+    <li>
+      <strong>${r.name}</strong><br><br>
+      <img src="${r.thumbnail}" width="250" />
+      <p><strong>Notes:</strong> ${r.note}</p>
+      <form method="POST" action="/recipes/${r._id}/delete">
+        <button>Delete</button>
+      </form><br>
+    </li>
+  `).join("")}
+</ul>
+` }) %>

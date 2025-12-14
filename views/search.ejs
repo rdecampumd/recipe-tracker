@@ -1,0 +1,13 @@
+<%- include("layout", { body: `
+<form method="GET" action="/recipes/results">
+  <input name="q" placeholder="Search meals" value="${query}">
+  <button>Search</button>
+</form>
+
+${meals ? meals.map(m => `
+  <div>
+    <img src="${m.strMealThumb}" width="200">
+    <a href="/recipes/${m.idMeal}">${m.strMeal}</a>
+  </div>
+`).join("") : ""}
+` }) %>

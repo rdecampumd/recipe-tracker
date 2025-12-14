@@ -1,0 +1,12 @@
+<%- include("layout", { body: `
+<h2>${meal.strMeal}</h2>
+<img src="${meal.strMealThumb}" width="200">
+<p><strong>Instructions: </strong>${meal.strInstructions}</p>
+
+${error ? `<p style="color:red">${error}</p>` : ""}
+
+<form method="POST" action="/recipes/${meal.idMeal}/save">
+  <textarea class="notes-area" name="note" placeholder="Your personal note" required></textarea><br><br>
+  <button>Save Recipe</button>
+</form>
+` }) %>
